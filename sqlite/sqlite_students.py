@@ -1,10 +1,12 @@
 import sqlite3
 
+from classes.config import getDbPath
 from sqlite.sqlite_procs import DictFactory
 
 
 # ------------------------------------------------------------------
-def GetSqliteStudents(db_path: str):
+def GetSqliteStudents():
+    db_path = getDbPath()
     dbObj = sqlite3.connect(db_path)
     dbObj.row_factory = DictFactory
     cursor = dbObj.cursor()
@@ -14,7 +16,7 @@ def GetSqliteStudents(db_path: str):
     return rows
 
 
-def GetStudentRecordsStmt():
+def GetStudentRecordsStmt(badgeNumber = None):
     return '''
         SELECT badgeNumber,
            firstName,

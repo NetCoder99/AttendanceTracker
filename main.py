@@ -20,7 +20,7 @@ app = Flask(__name__, static_folder=os.path.join(base_dir, 'static'), template_f
 def index():
     checkinMessage = {
         "imageSrc" : "static/images/misc_images/RSM_Logo1.jpg",
-        "message"  : "test",
+        "message"  : "Waiting ...",
         "responseClass" : "fw-bold border-bottom error"}
     return render_template('index.html', checkinMessage=checkinMessage)
 
@@ -32,10 +32,8 @@ def about():
 def checkin():
     if request.method == 'POST':
         data = request.form.to_dict()
-        print("Received data:", data)
+        #print("Received data:", data)
         return jsonify(validateCheckin(request.form.to_dict()))
-        # response_data = {"message": "Data received successfully!", "received_data": data}
-        # return jsonify(response_data)
 
 @app.route('/students')
 def students():
@@ -45,6 +43,6 @@ def students():
 
 # Run the application
 if __name__ == '__main__':
-    ui = FlaskUI(app=app, width=1200, height=900, fullscreen=False, server='flask')
-    ui.run()
-    #app.run(debug=False)
+    #ui = FlaskUI(app=app, width=1200, height=900, fullscreen=False, server='flask')
+    #ui.run()
+    app.run(debug=False)

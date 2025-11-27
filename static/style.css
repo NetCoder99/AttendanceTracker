@@ -40,3 +40,23 @@ h1 {
   font-size: 1.5em;
 }
 
+.checkinTimer {
+  display: inline-block;
+  width: 1rem;
+  font-size: 0.5em;
+  color: orange;
+  text-align: right;
+}
+
+.checkinMsg2 {
+  display: inline-block;
+  width: 15rem;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.removed {
+  display: none;
+}
